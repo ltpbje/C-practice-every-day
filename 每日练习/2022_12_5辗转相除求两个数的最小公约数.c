@@ -7,9 +7,9 @@ int main()
 	int b = 6;
 	int temp;
 	scanf("%d %d",&a,&b);
-	while (b % a!=0)
+	while (temp = b % a)
 	{
-		temp = b % a;
+		/*temp = b % a;*/
 		b = a;
 		a = temp;
 	}
