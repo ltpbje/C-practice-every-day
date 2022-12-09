@@ -3,20 +3,21 @@
 #include<math.h>
 int main()
 {
-	int i, j, count = 0;
-	for (i = 1; i <= 10; i++)
+	int a, b, n,count=0;
+	scanf("%d",&n);
+	for (a = 1; a <= n; a++)
 	{
-		for (j = 2; j <= sqrt(i); j++)
+		for (b = 2; b <= sqrt(a); b++)
 		{
-			if (i % j == 0)
+			if (a % b == 0)
 				break;
 		}
-		if (j > sqrt(i))
+		if (b > sqrt(a))
 		{
+			printf("%d ",a);
 			count++;
-			printf("%d ", i);
 		}
 	}
-	printf("\ncount = % d", count);
+	printf("\ncount=%d\n",count);
 	return 0;
 }
