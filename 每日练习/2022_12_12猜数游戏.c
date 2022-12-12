@@ -11,13 +11,31 @@ void menu()
 void game()
 {
 	int ret = 0;
+	int guess;
 	ret = rand() % 100 + 1;
-	printf("%d\n",ret);
+	while (1)
+	{
+		printf("输入你猜的数:");
+		scanf("%d",&guess);
+		if (guess < ret)
+		{
+			printf("猜小了\n"); 
+		}
+		else if (guess > ret)
+		{
+			printf("猜大了\n");
+		}
+		else
+		{
+			printf("猜对了\n");
+			break;
+		}
+	}
 }
 int main()
 {
 	int Input;
-	srand(time);
+	srand((unsigned int)(time)(NULL));
 	do
 	{
 		menu();//菜单
