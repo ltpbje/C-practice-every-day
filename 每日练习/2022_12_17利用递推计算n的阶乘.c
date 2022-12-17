@@ -1,0 +1,23 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+//int Fac(int n)
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return n * Fac(n - 1);
+//}
+int main(void)
+{ 
+	int n,i = 0;
+	scanf("%d",&n);
+	int ret = 1;
+	for (i = 1; i <= n; i++)
+	{
+		ret = ret * i;
+	}
+	printf("ret=%d\n",ret);
+	return 0;
+}
