@@ -1,2 +1,9 @@
-﻿  2023_1_3利用冒泡排序将降序一维数组变为升序.c
-  demo.vcxproj -> D:\code life\demo\x64\Debug\demo.exe
+﻿  game.c
+D:\code life\2023_1_4三子棋游戏\game.h(13,9): error C2109: 下标要求数组或指针类型
+D:\code life\2023_1_4三子棋游戏\game.h(15,4): warning C4013: “printf”未定义；假设外部返回 int
+D:\code life\2023_1_4三子棋游戏\game.c(8,15): warning C4047: “函数”:“int”与“int [3][3]”的间接级别不同
+D:\code life\2023_1_4三子棋游戏\game.c(8,12): warning C4024: “Initboard”: 形参和实参 1 的类型不同
+  test.c
+D:\code life\2023_1_4三子棋游戏\game.h(13,9): error C2109: 下标要求数组或指针类型
+D:\code life\2023_1_4三子棋游戏\test.c(25,4): warning C4013: “game”未定义；假设外部返回 int
+  正在生成代码...
