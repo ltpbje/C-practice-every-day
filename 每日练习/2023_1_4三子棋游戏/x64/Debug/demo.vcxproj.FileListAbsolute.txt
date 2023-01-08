@@ -1,0 +1,2 @@
+D:\code life\demo\x64\Debug\demo.exe
+D:\code life\2023_1_4三子棋游戏\x64\Debug\demo.exe
