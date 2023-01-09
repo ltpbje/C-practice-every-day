@@ -1,3 +1,5 @@
 ﻿  game.c
-D:\code life\2023_1_4三子棋游戏\game.c(13,3): warning C4013: “printf”未定义；假设外部返回 int
+D:\code life\2023_1_4三子棋游戏\game.c(24,4): warning C4013: “printf”未定义；假设外部返回 int
+  test.c
+  正在生成代码...
   demo.vcxproj -> D:\code life\2023_1_4三子棋游戏\x64\Debug\demo.exe
