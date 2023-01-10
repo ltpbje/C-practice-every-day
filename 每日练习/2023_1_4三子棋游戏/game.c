@@ -39,3 +39,29 @@ void DisplayBoard(char board[ROW][COL], int row, int col)
 		printf("\n");
 	}
 }
+void PlayerMove(char board[ROW][COL], int row, int col)
+{
+	int x = 0;
+	int y = 0;
+	printf("请选择所下位置>:");
+	scanf("%d %d",&x,&y);
+	while (1)
+	{
+		if (x<=row&&y<=col&&x>=1&&y>=1)
+		{
+			if (board[x - 1][y - 1] != " ")
+			{
+				board[x - 1][y - 1] = "*";
+				break;
+			}
+			else
+			{
+				printf("被占用了,重新输入>");
+			}
+		}
+		else
+		{
+			printf("选择错误,重新选择》");
+		}
+	}
+}

@@ -17,6 +17,12 @@ void game()
 	//初始化二维数组
 	Initboard(board, ROW, COL);
 	DisplayBoard(board,ROW, COL);
+	PlayerMove(board,ROW,COL);
+	while (1)
+	{
+		PlayerMove(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+	}
 }
 int main()
 {
