@@ -1,0 +1,6 @@
+﻿  game.c
+D:\code life\2023_1_4三子棋游戏\game.c(24,4): warning C4013: “printf”未定义；假设外部返回 int
+D:\code life\2023_1_4三子棋游戏\game.c(47,2): warning C4013: “scanf”未定义；假设外部返回 int
+D:\code life\2023_1_4三子棋游戏\game.c(52,34): warning C4047: “!=”:“int”与“char [2]”的间接级别不同
+D:\code life\2023_1_4三子棋游戏\game.c(54,30): warning C4047: “=”:“char”与“char [2]”的间接级别不同
+  demo.vcxproj -> D:\code life\2023_1_4三子棋游戏\x64\Debug\demo.exe
