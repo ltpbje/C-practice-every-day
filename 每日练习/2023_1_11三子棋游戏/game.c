@@ -66,3 +66,7 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 		}
 	}
 }
+void ComputerMove(char board[ROW][COL], int row, int col)
+{
+
+}

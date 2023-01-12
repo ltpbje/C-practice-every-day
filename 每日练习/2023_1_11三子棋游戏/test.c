@@ -21,11 +21,14 @@ void game()
 	{
 		PlayerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
+		ComputerMove(board[ROW][COL],ROW,COL);
+		DisplayBoard(board, ROW, COL);
 	}
 }
 int main()
 {
 	int input;
+	srand((unsigned int)time(NULL));
 	do
 	{
 		menu();
