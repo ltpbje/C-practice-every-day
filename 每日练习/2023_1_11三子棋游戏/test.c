@@ -12,6 +12,7 @@ void menu()
 }
 void game()
 {
+	char ret = 0;
 	//储存二维数组
 	char board[ROW][COL];
 	//初始化二维数组
@@ -21,10 +22,23 @@ void game()
 	{
 		PlayerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
-		ComputerMove(board[ROW][COL],ROW,COL);
+		isWin(board, ROW, COL);
+		ret= isWin(board, ROW, COL);
+		if (ret != 'C')
+			break;
+		ComputerMove(board,ROW,COL);
 		DisplayBoard(board, ROW, COL);
+		isWin(board, ROW, COL);
+		if (ret != 'C')
+			break;
 	}
-}
+	if (ret == '*')
+		printf("玩家胜\n");
+	else if (ret == '#')
+		printf("电脑胜\n");
+	else
+		printf("平局\n");
+}   
 int main()
 {
 	int input;

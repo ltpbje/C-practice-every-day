@@ -50,7 +50,7 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 		scanf("%d %d", &x, &y);
 		if (x <= row && y <= col && x >= 1 && y >= 1)
 		{
-			if (board[x - 1][y - 1] == ' ')
+			if (board[x - 1][y - 1] == ' '||board[x-1][y-1]!='#')
 			{
 				board[x - 1][y - 1] = '*';
 				break;
@@ -68,5 +68,21 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 }
 void ComputerMove(char board[ROW][COL], int row, int col)
 {
-
+	int x = 0;
+	int y = 0;
+	printf("µçÄÔ×ß\n");
+	while (1)
+	{ 
+		x = rand() % row;
+		y = rand() % col;
+		if (board[x][y] == ' ')
+		{
+			board[x][y] = '#';
+			break;
+		}
+	}
+}
+char isWin(char board[ROW][COL], int row, int col)
+{
+	
 }
