@@ -99,5 +99,21 @@ char isWin(char board[ROW][COL], int row, int col)
 		return board[0][0];
 	if (board[2][0] == board[1][1] && board[1][1] == board[0][0]&&board[1][1]!=' ')
 		return board[0][0];
-	else
+	int ret = isFull(board, row, col);
+	if (ret == 1)
+		return 'Q';
+	return 'C';
+}
+int isFull(char board[ROW][COL],int row,int col)
+{
+	int i = 0, j = 0;
+	for (i = 0;i < row; i++)
+	{
+		for (j = 0; j < col; j++)
+		{
+			if (board[i][j] == ' ')
+				return 0;
+		}
+	}
+	return 1;
 }

@@ -9,3 +9,4 @@ void ComputerMove(char board[ROW][COL], int row, int col);
 char isWin(char board[ROW][COL], int row, int col);
 #include<time.h>
 #include<stdlib.h>
+int isFull(char board[ROW][COL], int row, int col);
