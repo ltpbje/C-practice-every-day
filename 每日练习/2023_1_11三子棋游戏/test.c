@@ -38,6 +38,7 @@ void game()
 		printf("µçÄÔÊ¤\n");
 	else
 		printf("Æ½¾Ö\n");
+	DisplayBoard(board, ROW, COL); 
 }   
 int main()
 {
