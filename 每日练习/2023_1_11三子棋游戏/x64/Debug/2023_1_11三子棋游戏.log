@@ -1,4 +1,2 @@
-﻿  game.c
-D:\code life\2023_1_11三子棋游戏\game.c(24,4): warning C4013: “printf”未定义；假设外部返回 int
-D:\code life\2023_1_11三子棋游戏\game.c(50,3): warning C4013: “scanf”未定义；假设外部返回 int
+﻿  test.c
   2023_1_11三子棋游戏.vcxproj -> D:\code life\2023_1_11三子棋游戏\x64\Debug\2023_1_11三子棋游戏.exe

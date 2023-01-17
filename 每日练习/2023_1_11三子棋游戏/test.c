@@ -42,7 +42,7 @@ void game()
 }   
 int main()
 {
-	int input;
+	int input=0;
 	srand((unsigned int)time(NULL));
 	do
 	{
