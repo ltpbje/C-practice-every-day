@@ -90,19 +90,20 @@ char isWin(char board[ROW][COL], int row, int col)
 		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
 			return board[i][0];
 	}
-	for (i = 0; i < row; i++) 
+	for (i = 0; i < col; i++) 
 	{
 		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
 			return board[0][i];
 	}
 	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
-		return board[0][0];
+		return board[0][0];                  
 	if (board[2][0] == board[1][1] && board[1][1] == board[0][0]&&board[1][1]!=' ')
 		return board[0][0];
 	int ret = isFull(board, row, col);
 	if (ret == 1)
-		return 'Q';
+		return 'Q';		
 	return 'C';
+	
 }
 int isFull(char board[ROW][COL],int row,int col)
 {

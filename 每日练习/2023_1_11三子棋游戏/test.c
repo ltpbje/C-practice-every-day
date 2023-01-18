@@ -36,7 +36,7 @@ void game()
 		printf("玩家胜\n");
 	else if (ret == '#')
 		printf("电脑胜\n");
-	else
+	else if(ret=='Q')
 		printf("平局\n");
 	DisplayBoard(board, ROW, COL); 
 }   
