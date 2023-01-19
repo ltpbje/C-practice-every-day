@@ -12,32 +12,42 @@ void menu()
 }
 void game()
 {
-	char ret = 0;
 	//储存二维数组
 	char board[ROW][COL];
 	//初始化二维数组
 	Initboard(board, ROW, COL);
 	DisplayBoard(board, ROW, COL);
+	char ret = 0;
 	while (1)
 	{
 		PlayerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		isWin(board, ROW, COL);
-		ret= isWin(board, ROW, COL);
+		ret = isWin(board, ROW, COL);
 		if (ret != 'C')
+		{
 			break;
+		}
 		ComputerMove(board,ROW,COL);
 		DisplayBoard(board, ROW, COL);
-		isWin(board, ROW, COL);
+		ret = isWin(board, ROW, COL);
 		if (ret != 'C')
+		{
 			break;
+		}
 	}
 	if (ret == '*')
+	{
 		printf("玩家胜\n");
+	}
 	else if (ret == '#')
+	{
 		printf("电脑胜\n");
-	else if(ret=='Q')
+	}
+	else if (ret == 'Q')
+	{
 		printf("平局\n");
+	}
 	DisplayBoard(board, ROW, COL); 
 }   
 int main()
