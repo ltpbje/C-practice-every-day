@@ -11,7 +11,7 @@ void menu()
 	printf("*************************\n");
 }
 void game()
-{
+ {
 	//储存二维数组
 	char board[ROW][COL];
 	//初始化二维数组
@@ -58,12 +58,12 @@ int main()
 	{
 		menu();
 		printf("请选择:>>");
-		scanf("%d", &input);
+		scanf("%d",&input);
 		switch (input)
 		{
 		case 1:
 			printf("三子棋游戏\n");
-			game();
+ 			game();
 			break;
 		case 0:
 			printf("退出游戏\n");

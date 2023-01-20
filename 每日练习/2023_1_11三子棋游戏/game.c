@@ -110,12 +110,12 @@ char isWin(char board[ROW][COL], int row, int col)
 	{
 		return board[0][0];
 	}
-	int ret = isFull(board, row, col);
+	int ret = isFull (board, row, col);
 	if (ret == 1)
 	{
 		return 'Q';
 	}
-	return 'C';
+return 'C';
 	
 }
 int isFull(char board[ROW][COL],int row,int col)
