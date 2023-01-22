@@ -44,7 +44,7 @@ void game()
 	{
 		printf("µçÄÔÊ¤\n");
 	}
-	else if (ret == 'Q')
+	else
 	{
 		printf("Æ½¾Ö\n");
 	}
