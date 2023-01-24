@@ -7,6 +7,11 @@ void menu()
 	printf("***********0.Exit***************\n");
 	printf("********************************\n");
 }
+void game()
+{
+	char mine[11][11] = 0;
+	char show[11][11] = 0;
+}
 int main()
 {
 	int input = 0;
@@ -19,6 +24,7 @@ int main()
 		{
 		case 1:
 			printf("É¨À×ÓÎÏ·\n");
+			game();
 			break;
 		case 0:
 			printf("ÍË³öÓÎÏ·\n");
