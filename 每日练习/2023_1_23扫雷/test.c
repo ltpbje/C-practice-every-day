@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include"game.h"
+#include "game.h"
 void menu()
 {
 	printf("********************************\n");
@@ -10,10 +10,12 @@ void menu()
 }
 void game()
 {
-	char mine[ROWS][COLS] = 0;
-	char show[ROWS][COLS] = 0;
-	InitBoard(mine,ROWS,COLS);
-	InitBoard(show, ROWS, COLS);
+	char mine[ROWS][COLS] = 0;//²¼ÖÃÀ×
+	char show[ROWS][COLS] = 0;//ÅÅ²éÀ×
+	InitBoard(mine,ROWS,COLS,'0');
+	InitBoard(show, ROWS, COLS,'*');
+	DisplayBoard(mine,ROWS,COLS);
+	DisplayBoard(show,ROWS,COLS);
 }
 int main()
 {

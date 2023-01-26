@@ -1,2 +1,6 @@
-﻿  test.c
-  2023_1_23扫雷.vcxproj -> D:\code life\2023_1_23扫雷\x64\Debug\2023_1_23扫雷.exe
+﻿  game.c
+D:\code life\2023_1_23扫雷\game.c(23,4): warning C4013: “printf”未定义；假设外部返回 int
+  test.c
+D:\code life\2023_1_23扫雷\test.c(13,26): error C2075: "mine": 初始化需要带括号的初始化表达式列表
+D:\code life\2023_1_23扫雷\test.c(14,26): error C2075: "show": 初始化需要带括号的初始化表达式列表
+  正在生成代码...
