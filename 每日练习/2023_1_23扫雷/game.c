@@ -12,13 +12,20 @@ void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
 		}
 	}
 }
-void DisplayBoard(char board[ROWS][COLS], int rows, int cols)
+void DisplayBoard(char board[ROWS][COLS], int row, int col)
 {
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < rows; i++)
+	for (i = 0; i <= col; i++)
 	{
-		for (j = 0; j < cols; j++)
+		printf("%d ",i);
+	}
+    printf("\n");
+	printf("-----É¨À×ÓÎÏ·-----\n");
+	for (i = 1; i <= row; i++)
+	{
+		printf("%d ",i);
+		for (j = 1; j <= col; j++)
 		{
 			printf("%c ",board[i][j]);
 		}

@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include "game.h"
 void menu()
-{
+{ 
 	printf("********************************\n");
 	printf("***********1.Play***************\n");
 	printf("***********0.Exit***************\n");
@@ -10,12 +10,12 @@ void menu()
 }
 void game()
 {
-	char mine[ROWS][COLS] = 0;//布置雷
-	char show[ROWS][COLS] = 0;//排查雷
-	InitBoard(mine,ROWS,COLS,'0');
+	char mine[ROWS][COLS];//布置雷
+	char show[ROWS][COLS];//排查雷
+	InitBoard(mine,ROWS,COLS,'0');//初始化数组
 	InitBoard(show, ROWS, COLS,'*');
-	DisplayBoard(mine,ROWS,COLS);
-	DisplayBoard(show,ROWS,COLS);
+	//DisplayBoard(mine,ROW,COL);
+	DisplayBoard(show,ROW,COL);
 }
 int main()
 {
