@@ -6,5 +6,3 @@
 #include <stdio.h>
 void InitBoard(char board[ROWS][COLS], int rows, int cols, char set);
 void DisplayBoard(char board[ROWS][COLS], int row, int col);
-
-

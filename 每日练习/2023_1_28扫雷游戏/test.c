@@ -17,10 +17,13 @@ void game()
 	//DisplayBoard(mine,ROW,COL);
 	DisplayBoard(show, ROW, COL);
 	Setmine(mine,ROW,COL);
+	DisplayBoard(mine,ROW,COL);
+
 }
 int main()
 {
 	int input = 0;
+	srand((unsigned int)time(NULL));
 	do
 	{
 		menu();
