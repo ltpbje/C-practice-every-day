@@ -47,3 +47,7 @@ void Setmine(char board[ROWS][COLS],int row,int col)
 	}
 
 }
+void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
+{
+
+}
