@@ -47,7 +47,40 @@ void Setmine(char board[ROWS][COLS],int row,int col)
 	}
 
 }
+static int get_mine_count(char mine[ROWS][COLS],int x,int y)
+{
+	return mine[x - 1][y - 1] +
+		mine[x - 1][y] +
+		mine[x - 1][y + 1] +
+		mine[x][y - 1] +
+		mine[x][y + 1] +
+		mine[x + 1][y - 1] +
+		mine[x + 1][y] +
+		mine[x + 1][y + 1] - 8 * '0';
+
+}
 void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
-
+	int x = 0;
+	int y = 0;
+	while (1) 
+	{
+		print("输入坐标>>:");
+		scanf("%d%d", &x, &y);
+		if (x <= row && x >= 1 && y <= col && y >= 1)
+		{
+			if (mine[x][y] == '1')
+				printf("抱歉,你被炸死了\n");
+			else
+			{
+				int count = get_mine_count(mine,x,y);
+				mine[x][y] = count + '0';
+				DisplayBoard(mine, ROW, COL);
+			}
+		}
+		else
+		{
+			printf("输入错误,重新输入.\n");
+		}
+	}
 }
