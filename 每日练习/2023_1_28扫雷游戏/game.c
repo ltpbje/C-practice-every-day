@@ -34,11 +34,11 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 }
 void Setmine(char board[ROWS][COLS],int row,int col)
 {
-	int x = rand()%row+1;
-	int y = rand()%col+1;
 	int count = 10;
 	while (count)
 	{
+		int x = rand() % row + 1;
+		int y = rand() % col + 1;
 		if (board[x][y] == '0')
 		{
 			board[x][y] = '1';
@@ -65,7 +65,7 @@ void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	int y = 0;
 	while (1) 
 	{
-		print("输入坐标>>:");
+		printf("输入坐标>>:");
 		scanf("%d%d", &x, &y);
 		if (x <= row && x >= 1 && y <= col && y >= 1)
 		{
