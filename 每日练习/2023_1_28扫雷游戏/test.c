@@ -17,8 +17,9 @@ void game()
 	//DisplayBoard(mine,ROW,COL);
 	DisplayBoard(show, ROW, COL);
 	Setmine(mine,ROW,COL);
-	DisplayBoard(mine,ROW,COL);
+	//DisplayBoard(mine,ROW,COL);
 	Findmine(mine, show, ROW, COL);
+
 }
 int main()
 {

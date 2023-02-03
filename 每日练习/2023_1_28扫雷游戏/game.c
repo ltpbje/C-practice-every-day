@@ -74,8 +74,9 @@ void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			else
 			{
 				int count = get_mine_count(mine,x,y);
-				mine[x][y] = count + '0';
+				show[x][y] = count + '0';
 				DisplayBoard(mine, ROW, COL);
+				DisplayBoard(show, ROW, COL);
 			}
 		}
 		else
