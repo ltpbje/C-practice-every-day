@@ -63,7 +63,8 @@ void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	while (1) 
+	int win = 0;
+	while (win<) 
 	{
 		printf("输入坐标>>:");
 		scanf("%d%d", &x, &y);
