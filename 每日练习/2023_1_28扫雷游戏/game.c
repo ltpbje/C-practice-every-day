@@ -64,7 +64,7 @@ void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	int x = 0;
 	int y = 0;
 	int win = 0;
-	while (win<) 
+	while (win<row*col-Easy_count) 
 	{
 		printf("输入坐标>>:");
 		scanf("%d%d", &x, &y);
@@ -76,8 +76,9 @@ void Findmine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			{
 				int count = get_mine_count(mine,x,y);
 				show[x][y] = count + '0';
-				DisplayBoard(mine, ROW, COL);
+				//DisplayBoard(mine, ROW, COL);
 				DisplayBoard(show, ROW, COL);
+				win++;
 			}
 		}
 		else
