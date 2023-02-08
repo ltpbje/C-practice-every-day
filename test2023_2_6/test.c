@@ -17,9 +17,31 @@ int main()
 //	printf("%d\n",b);
 //	return 0;
 //}
+//{
+//	int a = -1;
+//	int b = a >> 1;
+//	printf("%d\n",b);
+//	return 0;
+//}
+//{
+//	int a = 2;
+//	int b = 1;
+//	printf("%d\n",a^b);
+//}
+//不创建变量来交换两个变量的值
+//{
+//	int a = 2;
+//	int b = 3;
+//	a = a + b;
+//	b = a - b;
+//	a = a - b;
+//	printf("%d %d\n",a,b);
+//}
 {
-	int a = -1;
-	int b = a >> 1;
-	printf("%d\n",b);
-	return 0;
+	int a = 2;
+	int b = 3;
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("a=%d b=%d\n", a, b);
 }
