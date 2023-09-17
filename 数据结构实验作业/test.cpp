@@ -56,13 +56,25 @@ Status ListInsert_Sq(SqList &L,int i ,ElemType e)
     ++L.length;		     	//表长增1
     return OK;
 };
-
-Status ListDelete_Sq(SqList &L,int i ,int &get)
+Status print_Sq(SqList L)
+{ 
+  int i;
+  printf("\n线性表表中元素如下： ");
+  for(i=0;i<L.length;i++) printf("%d ",L.elem[i]);
+  printf("\n");
+  return OK;
+};
+Status ListDelete_Sq(SqList &L,int i ,int get)
 {  int j;
    if((i<1)||(i>L.length)) return ERROR;//i值不合法
    get = L.elem[i-1];
-   for (j=i;j<=L.length-1;j++)L.elem[j-1]=L.elem[j];  
-   --L.length;               	      //表长减1
+   for (j = i; j <= L.length - 1; j++){ 
+       L.elem[j - 1] = L.elem[j];
+   };
+   --L.length; //表长减1
+   print_Sq(L);
+   printf("\n");
+   printf("%d", get);
    return OK; 
 }
 
@@ -75,14 +87,7 @@ Status create_Sq(SqList &L,int n)
       }
   return OK;
  };
-Status print_Sq(SqList L)
-{ 
-  int i;
-  printf("\n线性表表中元素如下： ");
-  for(i=0;i<L.length;i++) printf("%d ",L.elem[i]);
-  printf("\n");
-  return OK;
-};
+
 void GetElemFn(SqList L) {
     int i;
     int e;
@@ -103,15 +108,15 @@ void insertItem(SqList L) {
     print_Sq(L);
 };
 //（4）删除元素功能
-void delItem(SqList &L) {
+void delItem(SqList L) {
     int del_i;
-    int get;
+    int get=0;
     printf("删除第几个元素");
     scanf("%d", &del_i);
     ListDelete_Sq(L, del_i, get);
-    print_Sq(L);
+    /*print_Sq(L);
     printf("\n");
-    printf("%d", get);
+    printf("%d", get);*/
 };
 //（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
 void checkItemFn(SqList L) {
@@ -121,10 +126,11 @@ void checkItemFn(SqList L) {
     int locateIndex = LocateELem(L, checkItem);
     if (locateIndex) {
         printf("%d\n", locateIndex);
-    } else { 
-        printf("找不到该元素\n"); 
+    }
+    else {
+        printf("找不到该元素\n");
     };
-}
+};
 int main()
 {
     SqList L;
@@ -142,9 +148,9 @@ int main()
     print_Sq(L);
     //（3）将一个数x插在第i个元素前（x和i在程序运行时输入）
     insertItem(L);
-    ////（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值
+    //（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值
     delItem(L);
-    ////（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
+    //（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
     checkItemFn(L);
     //（6）查找指定位置元素的值并输出；
     GetElemFn(L);
