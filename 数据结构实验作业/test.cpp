@@ -147,10 +147,13 @@ int main()
     InitList_Sq(L);
     printf("输入线性表的表长:");
     scanf("%d", &n);
+    create_Sq(L, n);
+    print_Sq(L);
     printMenu(i);
     switch (i)
     {
     case 1: //（2）创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）；
+        InitList_Sq(L);
         create_Sq(L, n);
         print_Sq(L);
         break;
