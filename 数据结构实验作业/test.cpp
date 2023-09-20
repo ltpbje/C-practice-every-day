@@ -131,7 +131,7 @@ void checkItemFn(SqList L) {
     };
 };
 void printMenu(int &i) {
-    printf("1.创建线性表请输入---1\n2.插入元素请输入---2\n3.删除元素请输入---3\n4.查找元素并返回查找元素位置请输入---4\n5.查找元素并返回查找元素请输入---5\n6.输出线性表中的所有元素请输入---6\n");
+    printf("1.创建线性表请输入---1\n2.插入元素请输入---2\n3.删除元素请输入---3\n4.查找元素并返回查找元素位置请输入---4\n5.查找元素并返回查找元素请输入---5\n6.输出线性表中的所有元素请输入---6\n7.退出程序输入---7\n");
     scanf("%d",&i);
 };
 int main()
@@ -149,33 +149,38 @@ int main()
     scanf("%d", &n);
     create_Sq(L, n);
     print_Sq(L);
+    while (1) {
     printMenu(i);
-    switch (i)
-    {
-    case 1: //（2）创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）；
-        InitList_Sq(L);
-        create_Sq(L, n);
-        print_Sq(L);
-        break;
-        //（3）将一个数x插在第i个元素前（x和i在程序运行时输入）
-    case 2:
+    if (i == 7) {
+        return 0;
+    };
+        switch (i)
+        {
+        case 1: //（2）创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）；
+            InitList_Sq(L);
+            create_Sq(L, n);
+            print_Sq(L);
+            break;
+            //（3）将一个数x插在第i个元素前（x和i在程序运行时输入）
+        case 2:
             insertItem(L);
             break;
-    case 3:
-        //（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值
-        delItem(L);
-        break;
-    case 4:
-        //（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
-        checkItemFn(L);
-        break;
-    case 5:
-        //（6）查找指定位置元素的值并输出；
-        GetElemFn(L);
-        break;
-    case 6:
-        //（7）输出线性表中所有元素。
-        print_Sq(L);
-        break;
+        case 3:
+            //（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值
+            delItem(L);
+            break;
+        case 4:
+            //（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
+            checkItemFn(L);
+            break;
+        case 5:
+            //（6）查找指定位置元素的值并输出；
+            GetElemFn(L);
+            break;
+        case 6:
+            //（7）输出线性表中所有元素。
+            print_Sq(L);
+            break;
+        }
     }
 }
