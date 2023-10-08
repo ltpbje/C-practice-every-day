@@ -61,6 +61,9 @@ void insertElem(LinkList &L,ElemType x,ElemType i) {
 //（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；
 void delItem(LinkList&L, ElemType i,ElemType &e)
 {
+	LNode* p = L->next;// p为工作结点
+	LNode* q = L;      //q为p的前驱结点
+	int n = 1; //记录长度
 
 };
 
