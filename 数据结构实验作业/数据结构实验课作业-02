@@ -1,0 +1,103 @@
+#define _CRT_SECURE_NO_WARNINGS 1 
+#include<stdio.h> // EOF(=^Z或F6),NULL
+#include<stdlib.h> // srand( ) ,rand( ),exit(n)
+#include<malloc.h> // malloc( ),alloc( ),realloc( )等
+#include<limits.h> // INT_MAX等
+#include<string.h>
+#include<ctype.h>
+#include<math.h> // floor(),ceil( ),abs( )
+#include<iostream> // cout,cin
+#include<time.h> // clock( )
+#define    TRUE          1
+#define     FALSE       0 
+#define     OK              1
+#define     ERROR      0
+#define     INFEASIBLE     -1
+#define     OVERFLOW     -2 
+typedef      int         Status;
+typedef      int   ElemType;
+#define  MAXSIZE 100     //最大长度
+//单链表的存储结构
+typedef struct LNode {
+	int data;
+	struct LNode* next;
+}LNode, * LinkList;
+//单链表的初始化（1）初始化一个线性表
+Status InitList(LinkList& L) {
+	L = new LNode;
+	L->next = NULL;
+	return OK;
+};
+//单链表的创建（2）创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）；
+void CreateList_R(LinkList& L, int n) {
+	L = new LNode;
+	L->next = NULL;
+	LinkList r = L;
+	for (int i = 0; i < n; ++i) {
+		LinkList p = new LNode;
+		printf("输入元素:");
+		scanf("%d", &p->data);
+		p->next = NULL;
+		r->next = p;
+		r = p;
+	}
+};
+//（3）将一个数x插在第i个元素前(x和i在程序运行时随机输入);
+void insertElem(LinkList &L,ElemType x,ElemType i) {
+	LNode* p = L->next;// p为工作结点
+	LNode* q = L;      //q为p的前驱结点
+	int n = 1; //记录长度
+	while (p && n < i)
+	{
+		q = p;
+		p = p->next;
+		n++;
+	};
+	LNode* r = new LNode;//创建 r结点 
+	r->data = x;//为 r 结点数据域赋值
+	r->next = p;
+	q->next = r;
+}
+//（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；
+void delItem(LinkList&L, ElemType i,ElemType &e)
+{
+
+};
+
+//查找元素
+LNode* LocateElem(LinkList L, ElemType e) {
+	LinkList p = L->next;
+	while (p && p->data != e) {
+		p = p->next;
+	};
+	return p;
+};
+void printLinkList(LinkList L) {
+	LNode* p = L->next;
+	while (p && p->data) {
+		printf("%d ", p->data);
+		p = p->next;
+	};
+	printf("\n");
+}
+
+int main() {
+	LinkList La, Lb, Lc;
+	int Na, Nb;
+	printf("输入La表的长度");
+	scanf("%d", &Na);
+	CreateList_R(La, Na);
+	printLinkList(La);
+	//printf("输入Lb表的长度");
+	//scanf("%d", &Nb);
+	//CreateList_R(Lb, Nb);
+	//printLinkList(Lb);
+	//（3）将一个数x插在第i个元素前（x和i在程序运行时随机输入）；
+	int x = 0, i = 0;
+	printf("将一个数x插在第i个元素前 x i:");
+	scanf("%d %d", &x, &i);
+	insertElem(La, x, i);
+	printLinkList(La);
+
+	//（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；
+}
