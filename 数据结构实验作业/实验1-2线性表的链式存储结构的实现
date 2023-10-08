@@ -1,0 +1,199 @@
+#define _CRT_SECURE_NO_WARNINGS 1 
+#include<stdio.h> // EOF(=^Z或F6),NULL
+#include<stdlib.h> // srand( ) ,rand( ),exit(n)
+#include<malloc.h> // malloc( ),alloc( ),realloc( )等
+#include<limits.h> // INT_MAX等
+#include<string.h>
+#include<ctype.h>
+#include<math.h> // floor(),ceil( ),abs( )
+#include<iostream> // cout,cin
+#include<time.h> // clock( )
+#define    TRUE          1
+#define     FALSE       0 
+#define     OK              1
+#define     ERROR      0
+#define     INFEASIBLE     -1
+#define     OVERFLOW     -2 
+typedef      int         Status;
+typedef      int   ElemType;
+#define  MAXSIZE 100     //最大长度
+//单链表的存储结构
+typedef struct LNode {
+	int data;
+	struct LNode* next;
+}LNode, * LinkList;
+//单链表的初始化（1）初始化一个线性表
+Status InitList(LinkList& L) {
+	L = new LNode;
+	L->next = NULL;
+	return OK;
+};
+//单链表的创建（2）创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）；
+void CreateList_R(LinkList& L, int n) {
+	L = new LNode;
+	L->next = NULL;
+	LinkList r = L;
+	for (int i = 0; i < n; ++i) {
+		LinkList p = new LNode;
+		printf("输入元素:");
+		scanf("%d", &p->data);
+		p->next = NULL;
+		r->next = p;
+		r = p;
+	}
+};
+//（3）将一个数x插在第i个元素前(x和i在程序运行时随机输入);
+void insertElem(LinkList& L, ElemType x, ElemType i) {
+	LNode* p = L->next;// p为工作结点
+	LNode* q = L;      //q为p的前驱结点
+	int n = 1; //记录长度
+	while (p && n < i)
+	{
+		q = p;
+		p = p->next;
+		n++;
+	};
+	LNode* r = new LNode;//创建 r结点 
+	r->data = x;//为 r 结点数据域赋值
+	r->next = p;
+	q->next = r;
+}
+//（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；
+void delItem(LinkList& L, ElemType i, ElemType& e)
+{
+	LNode* p = L->next;// p为工作结点
+	LNode* q = L;      //q为p的前驱结点
+	int n = 1; //记录长度
+	while (p && n < i)
+	{
+		q = p;
+		p = p->next;
+		n++;
+	};
+	e = p->data;
+	LNode* d = p;
+	q->next = p->next;
+	delete d;
+};
+//（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
+int FindElem(LinkList L, ElemType e) {
+	LinkList p = L->next;
+	int n = 1;
+	while (p && p->data != e) {
+		p = p->next;
+		n++;
+	};
+	if (!p) return 0;
+	return n;
+};
+//（6）查找指定位置元素的值并输出；
+void getItem(LinkList L, ElemType i)
+{
+	LinkList p = L->next;
+	int n = 1;
+	while (p && n < i) {
+		p = p->next;
+		n++;
+	};
+	if (p)
+	{
+		printf("该元素为:%d\n", p->data);
+	}
+	else {
+		printf("输入位置错误\n");
+	}
+}
+
+//查找元素
+LNode* LocateElem(LinkList L, ElemType e) {
+	LinkList p = L->next;
+	while (p && p->data != e) {
+		p = p->next;
+	};
+	return p;
+};
+void printLinkList(LinkList L) {
+	LNode* p = L->next;
+	while (p && p->data) {
+		printf("%d ", p->data);
+		p = p->next;
+	};
+	printf("\n");
+}
+
+int main() {
+	LinkList La, Lb, Lc;
+	int Na, Nb;
+	int sel;
+	printf("输入La表的长度");
+	scanf("%d", &Na);
+	CreateList_R(La, Na);
+	printLinkList(La);
+	printf(" (1).初始化一个线性表\n (2).创建一个包含n个正整数值的线性表（线性表的长度n和表中元素的值随机输入）\n（3）将一个数x插在第i个元素前（x和i在程序运行时随机输入）；\n（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；\n（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；\n（6）查找指定位置元素的值并输出；\n（7）输出线性表中所有元素。\n请选择:");
+	scanf("%d",&sel);
+	switch (sel)
+	{
+	case 1:
+	{
+		InitList(La);
+		break;
+	}
+	case 2:
+	{
+		LinkList L;
+		int n;
+		printf("输入La表的长度");
+		scanf("%d", &n);
+		CreateList_R(L, n);
+		break;
+	}
+	case 3:
+	{
+		//（3）将一个数x插在第i个元素前（x和i在程序运行时随机输入）；
+		int x = 0, i = 0;
+		printf("将一个数x插在第i个元素前 x i:");
+		scanf("%d %d", &x, &i);
+		insertElem(La, x, i);
+		printLinkList(La);
+		break;
+	}
+	case 4:
+	{
+		//（4）删除第i个元素（i在程序运行时输入），并在删除结束后输出删除元素的值；
+		int e = 0;
+		printf("删除第几个元素：");
+		int i;
+		scanf("%d", &i);
+		delItem(La, i, e);
+		printLinkList(La);
+		printf("删除元素的值为:%d\n", e);
+		break;
+	}
+	case 5:
+	{
+		//（5）查找指定元素e是否在线性表中存在，若存在返回此元素的位序，否则返回0；
+		int i;
+		printf("输入要查找的元素:");
+		scanf("%d", &i);
+		int res = FindElem(La, i);
+		if (res)printf("此元素的位序为:%d\n", res);
+		else  printf("未找到该元素\n");
+		break;
+	}
+	case 6:
+	{
+		//（6）查找指定位置元素的值并输出；
+		int i;
+		printf("输入要查找的元素的位置:");
+		scanf("%d", &i);
+		getItem(La, i);
+		break;
+	}
+	case 7:
+	{
+		//（7）输出线性表中所有元素。
+		printLinkList(La);
+		break;
+	}
+	}
+}
