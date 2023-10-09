@@ -8,6 +8,7 @@
 #include<math.h> // floor(),ceil( ),abs( )
 #include<iostream> // cout,cin
 #include<time.h> // clock( )
+#define LENGTH(array) (sizeof(array) / sizeof(array[0]))
 #define    TRUE          1
 #define     FALSE       0 
 #define     OK              1
@@ -33,20 +34,21 @@ Status InitStack(SqStack& S) {
 	return OK;
 }
 //（2）随机创建一个包含正整数值的栈（当输入-1时创建结束）；
-Status createStack(SqStack& S) {
+Status createStack(SqStack& S) 
+{
 	int e=0;
-	while (1){
-	printf("输入元素(输入-1结束):");
-	scanf("%d", &e);
-	if (e == -1) {
-		break;
-	}
+	while (1) {
+		printf("输入元素(输入-1结束):");
+		scanf("%d", &e);
+		if (e == -1) {
+			break;
+		}
 		if (S.top - S.base == S.stacksize) return ERROR;//栈满
 		*S.top++ = e;//将元素e压入栈顶,栈顶指针加1
 		/**S.Top++ = e; 虽然++优先级比* 高，但是它是后置自加，所以它是先把e存储到栈顶，然后指针上移； e = *--S.Top; 这儿
 		是前置，那么和* 比较优先级，自然是--高，那么先下移指针，再把指针指向的东西赋给e；*/
 		//return OK;
-	};
+	}
 }
 //(3)将一个数x插在栈顶(x在程序运行时输入)
 void Push(SqStack &s) {
@@ -62,25 +64,104 @@ void printTop(SqStack s) {
 	int e = *s.top;
 	printf("栈顶元素的值:%d\n", e);
 }
+//(6)求栈的长度；
+void getStackLength(SqStack &s) {
+	if (s.top == s.base)
+	{
+		printf("栈已空\n");
+		return;
+	}
+	int n = 0;
+	while (s.top != s.base)
+	{
+		*s.top--;
+		n++;
+	};
+	printf("栈的长度为:%d\n", n);
+}
+//(7)输出从栈底到栈顶的所有元素。
+void printAllItem(SqStack& s) {
+	printf("栈底到栈顶的所有元素为:");
+	if (s.top == s.base) printf("栈已空\n");
+	while (s.top != s.base)
+	{
+		
+		printf("%d ",*s.base);
+		*s.base++;
+	}
+	printf("\n");
+}
 //(4)将栈顶元素弹出，并在弹出结束后输出弹出元素的值：
 void Pop(SqStack &s,SElemType &e) {
 	if (s.top == s.base) printf("栈已空");
 	e = *--s.top;
 }
-int main() {
+int main() 
+{
 	SqStack s;
-	//（1）初始化一个空栈；
 	InitStack(s);
-	//（2）随机创建一个包含正整数值的栈（当输入-1时创建结束）；
-	createStack(s);
-	//(3)将一个数x插在栈顶(x在程序运行时输入)
-	//Push(s);
-	//(4)将栈顶元素弹出，并在弹出结束后输出弹出元素的值：
-	/*int e=0;
-	Pop(s,e);
-	printf("弹出元素的值：%d\n",e);*/
-	//(5)输出栈顶元素的值
-	printTop(s);
-};
+	int n = 0;
+	do
+	{
+	printf("(1）初始化一个空栈；\n(2）随机创建一个包含正整数值的栈（当输入-1时创建结束）；\n(3)将一个数x插在栈顶(x在程序运行时输入)\n(4)将栈顶元素弹出，并在弹出结束后输出弹出元素的值：\n(5)输出栈顶元素的值：\n(6)求栈的长度\n(7)输出从栈底到栈顶的所有元素\n");
+	printf("请选择(输入0结束):");
+	scanf("%d", &n);
+		switch (n)
+		{
+		case 1:
+		{
+			//(1）初始化一个空栈；
+			InitStack(s);
+			break;
+		}
+		case 2:
+		{
+			//(2）随机创建一个包含正整数值的栈（当输入-1时创建结束）；
+			createStack(s);
+			break;
+		}
+		case 3:
+		{
+			//(3)将一个数x插在栈顶(x在程序运行时输入)
+			Push(s);
+			break;
+		}
+		case 4:
+		{
+			//(4)将栈顶元素弹出，并在弹出结束后输出弹出元素的值：
+			int e = 0;
+			Pop(s, e);
+			printf("弹出元素的值：%d\n", e);
+			break;
+		}
+		case 5:
+		{
+			//(5)输出栈顶元素的值
+			printTop(s);
+			break;
+		}
+		case 6:
+		{
+			//(6)求栈的长度；
+			getStackLength(s);
+			break;
+		}
+		case 7:
+		{
+			//(7)输出从栈底到栈顶的所有元素。
+			printAllItem(s);
+			break;
+		}
+		default:
+		{
+			printf("输入错误,请重新输入\n");
+			break;
+		}
+		}
+		printf("\n\n");
+		printf("-------------------------------------------------\n");
+	}while (n != 0);
+	return 0;
+}
 
 
